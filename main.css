@@ -1,0 +1,120 @@
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    /* 新增：寬度和標頭一致 */
+    margin: 0 auto;
+    /* 新增：置中 */
+}
+
+.card {
+    /* 卡片在容器內排版 */
+    box-sizing: border-box;
+    flex: 7% 1 1;
+    /* 每個 item 分配容器寬度 */
+    /* => flex-basis所占大小/比例, flex-grow是否填滿剩餘空間, flex-shirnk空間不夠是否收縮 (0/1是加權)*/
+    height: 8vw;
+    /* 依視窗的寬度等比例變化 */
+    border: 2px solid #e0e0e0;
+    margin: 2px;
+    /* 設定 box-sizing*/
+    /* 卡片內部容器排版 */
+    display: flex;
+    /* main axis */
+    flex-direction: coulumn;
+    justify-content: space-around;
+}
+
+.card img {
+    max-width: 30%;
+    align-self: center;
+}
+
+.card p {
+    margin: 3px;
+    font-size: 10px;
+}
+
+.card p:last-child {
+    transform: rotate(180deg);
+}
+
+.back {
+    background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+    background-size: cover;
+    /* 調整背景圖片大小到容器大小 */
+}
+
+.paired {
+    background-color: #dae0e3;
+}
+
+#header {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 85%;
+}
+
+#header .title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#header .title img {
+    max-width: 3em;
+}
+
+#header .title h2 {
+    padding-left: 0.5em;
+}
+
+#header .score {
+    margin: 0;
+    color: #6c90ac;
+}
+
+#header .tried {
+    margin-top: 0;
+}
+
+.wrong {
+    /* 呼叫下面關鍵影格 */
+    animation-name: wrongAnimation;
+    /* 一次播0.2s */
+    animation-duration: 0.2s;
+    /* 一次播5次 */
+    animation-iteration-count: 5;
+}
+
+/* 關鍵影格 可以設置0%~100%看細緻程度，這邊其實就是0% 和 100% */
+@keyframes wrongAnimation {
+    to {
+        border: 2px solid #ffd54f;
+    }
+}
+
+/** Game finished **/
+.completed {
+    position: absolute;
+    z-index: 999;
+    top: 33vh;
+    background-color: RGBA(232, 246, 254, 0.8);
+    width: 100vw;
+    padding: 50px 0;
+}
+
+.completed>p {
+    font-size: 1.5em;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+.completed>p:first-child {
+    font-size: 3em;
+    font-weight: 700;
+    color: #758d9a;
+}
